@@ -10,7 +10,7 @@ const generateManifest = () => {
   return JSON.stringify(
     {
       manifest_version: 2,
-      name: "manaba Enhanced for Tsukuba",
+      name: "manaba Enhanced for Ryukoku",
       version: packageJson.version,
       description: "Make your manaba a little bit more comfortable",
       icons: {
@@ -25,7 +25,7 @@ const generateManifest = () => {
         "webRequest",
         "webRequestBlocking",
         "downloads",
-        "*://manaba.tsukuba.ac.jp/*",
+        "*://manaba.ryukoku.ac.jp/*",
       ],
       options_ui: {
         page: "options.html",
@@ -38,18 +38,18 @@ const generateManifest = () => {
       },
       content_scripts: [
         {
-          matches: ["https://manaba.tsukuba.ac.jp/*"],
+          matches: ["https://manaba.ryukoku.ac.jp/*"],
           run_at: "document_start",
           js: ["contentScript/main.js"],
         },
         {
-          matches: ["https://manaba.tsukuba.ac.jp/*"],
-          include_globs: ["https://manaba.tsukuba.ac.jp/ct/course_*_report_*"],
+          matches: ["https://manaba.ryukoku.ac.jp/*"],
+          include_globs: ["https://manaba.ryukoku.ac.jp/ct/course_*_report_*"],
           js: ["contentScript/reportTemplate.js"],
         },
         {
-          matches: ["https://manaba.tsukuba.ac.jp/*"],
-          include_globs: ["https://manaba.tsukuba.ac.jp/ct/course_*_grade"],
+          matches: ["https://manaba.ryukoku.ac.jp/*"],
+          include_globs: ["https://manaba.ryukoku.ac.jp/ct/course_*_grade"],
           js: ["contentScript/showRelativeGradesPosition.js"],
         },
       ],
@@ -71,7 +71,7 @@ const generateManifest = () => {
               gecko: {
                 id: "{9FD229B7-1BD6-4095-965E-BE30EBFAD42E}",
                 update_url:
-                  "https://raw.githubusercontent.com/manaba-enhanced-for-tsukuba/dist-firefox/main/updates.json",
+                  "https://raw.githubusercontent.com/manaba-enhanced-for-ryukoku/dist-firefox/main/updates.json",
               },
             },
           }
